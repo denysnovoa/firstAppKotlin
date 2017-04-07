@@ -1,8 +1,7 @@
 package com.denysnovoa.trainingappkotlin
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
+import android.support.v7.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -12,12 +11,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         button.setOnClickListener {
-            val text = editText.text
-            Toast.makeText(this, text, Toast.LENGTH_LONG).show()
+            toast(editText.text)
         }
 
         val item = Item()
         item.title = "Uno"
-        val title =item.title
+        val title = item.title
     }
 }
