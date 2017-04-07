@@ -10,12 +10,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val item = Item("title", "url")
+        val (title, _) = item
+
         button.setOnClickListener {
             toast(editText.text)
         }
-
-        val item = Item()
-        item.title = "Uno"
-        val title = item.title
     }
+
 }
