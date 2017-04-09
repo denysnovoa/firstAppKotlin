@@ -10,8 +10,15 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val item = Item("title", "url")
-        val (title, _) = item
+        val (title, _) = Item("title", "url")
+
+        val items = listOf(Item("title1", "url1"), Item("title2", "url2"))
+        val emptyList = emptyList<Item>()
+        val sorted = items
+                .sortedBy(Item::title)
+                .filter { it.url.isNotEmpty() }
+                .map { Item::title  }
+
 
         button.setOnClickListener {
             toast(editText.text)
