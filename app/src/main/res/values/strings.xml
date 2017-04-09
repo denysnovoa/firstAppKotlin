@@ -1,3 +1,4 @@
 <resources>
   <string name="app_name">TrainingAppKotlin</string>
+  <string name="image_description">Imagen</string>
 </resources>

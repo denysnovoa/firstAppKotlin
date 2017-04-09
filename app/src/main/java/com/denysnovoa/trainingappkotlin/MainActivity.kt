@@ -2,6 +2,7 @@ package com.denysnovoa.trainingappkotlin
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.GridLayoutManager
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -10,19 +11,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val (title, _) = Item("title", "url")
+        recycler.layoutManager = GridLayoutManager(this, 2)
+        recycler.adapter = ItemAdapter(getItems())
 
-        val items = listOf(Item("title1", "url1"), Item("title2", "url2"))
-        val emptyList = emptyList<Item>()
-        val sorted = items
-                .sortedBy(Item::title)
-                .filter { it.url.isNotEmpty() }
-                .map { Item::title  }
-
-
-        button.setOnClickListener {
-            toast(editText.text)
-        }
     }
-
 }
