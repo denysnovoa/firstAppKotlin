@@ -1,5 +1,6 @@
 package com.denysnovoa.trainingappkotlin
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.GridLayoutManager
@@ -12,7 +13,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         recycler.layoutManager = GridLayoutManager(this, 2)
-        recycler.adapter = ItemAdapter(getItems())
+        recycler.adapter = ItemAdapter(getItems()) { item ->
+            val intent = Intent(this, DetailActivity::class.java)
+            intent.putExtra(DetailActivity.EXTRA_ID, item.id)
+            startActivity(intent)
+        }
 
     }
 }
